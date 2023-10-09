@@ -10,16 +10,32 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h1>Получение данных</h1>
-<form class="form" id="getPostForm">
-    <label for="postId">Post ID:</label>
-    <input type="number" id="postId" name="postId">
-    <button type="button" id="getData" onclick="getPosts()">Получить</button>
-</form>
+<div class="container">
+    <h1>Получение данных</h1>
+    <form class="form" id="getPostForm">
+        <label for="postId">Post ID:</label>
+        <input type="number" id="postId" name="postId">
+        <button type="button" id="getData" onclick="getPosts()">Получить</button>
+    </form>
 
-<h1>Данные</h1>
-<table class="table-data" id="postTable">
-</table>
+    <h1>Отправка данных</h1>
+    <form id="sendPostForm">
+        <label for="postTitle">Заголовок:</label>
+        <input type="text" id="postTitle" name="postTitle">
+
+        <label for="postBody">Текст:</label>
+        <textarea id="postBody" name="postBody"></textarea>
+
+        <label for="userId">Id пользователя:</label>
+        <input type="number" id="userId" name="userId">
+
+        <button type="button" id="sendData" onclick="sendPost()">Отправить</button>
+    </form>
+
+    <h1>Данные</h1>
+    <table class="table-data" id="postTable">
+    </table>
+</div>
 
 <script src="js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
