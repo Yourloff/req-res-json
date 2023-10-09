@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    font-family: 'Segoe UI';
 }
 ol, ul {
     list-style: none;
@@ -42,6 +43,38 @@ table {
     border-spacing: 0;
 }
 
-h1 {
+.container {
+    max-width: 1020px;
+    margin: 30px auto;
+}
 
+h1 {
+    margin: 5px 0;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+form {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.table-data {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+
+.table-data th {
+    font-weight: bold;
+    padding: 5px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+
+.table-data td {
+    border: 1px solid #dddddd;
+    padding: 5px;
 }
