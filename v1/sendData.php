@@ -1,10 +1,15 @@
 <?php
-$url = 'https://my-json-server.typicode.com/Yourloff/json-server/posts';
+ini_set('display_errors', 0);
+
+$url = 'https://jsonplaceholder.typicode.com/posts';
+$postTitle = $_POST["title"];
+$postBody = $_POST["body"];
+$userId = $_POST["userId"];
 
 $postData = [
-    "title" => $_POST["postTitle"],
-    "body" => $_POST["postBody"],
-    "userId" => $_POST["userId"]
+    "title" => $postTitle,
+    "body" => $postBody,
+    "userId" => $userId
 ];
 
 $options = [
@@ -17,4 +22,17 @@ $options = [
 
 $context = stream_context_create($options);
 $response = file_get_contents($url, false, $context);
-echo $response;
+$html = resHtml(json_decode($response));
+echo $html;
+
+function resHtml($post): string
+{
+    $html = '';
+    $html .= '<tr>';
+    $html .= '<td>' . $post->userId . '</td>';
+    $html .= '<td>' . $post->title . '</td>';
+    $html .= '<td>' . $post->body . '</td>';
+    $html .= '</tr>';
+
+    return $html;
+}

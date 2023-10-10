@@ -1,9 +1,8 @@
 <?php
 ini_set('display_errors', 0);
 
-$url = "https://my-json-server.typicode.com/Yourloff/json-server/posts";
-
-$postId = $_POST['postId'];
+$url = "https://jsonplaceholder.typicode.com/posts";
+$postId = $_GET['postId'];
 
 if (!empty($postId)) {
     $url .= "/" . $postId;
@@ -26,8 +25,8 @@ if ($response !== false) {
             $output .= resHtml($data);
         }
     }
-    $html = "<tr><th>id пользователя</th><th>Заголовок</th><th>Текст</th></tr>" . $output;
-    echo $html;
+    echo $output;
+
 } else {
     if (http_response_code() == 404) {
         echo "Ошибка: Пост не найден.";
